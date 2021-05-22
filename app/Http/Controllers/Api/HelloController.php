@@ -13,6 +13,6 @@ class HelloController extends Controller
         if ($request->has('secret')) {
             $content = $content . ', your secret is ' . $request->secret;
         }
-        return $content;
+        return ['status' => 1, 'result' => $content];
     }
 }
