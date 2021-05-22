@@ -19,3 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/hello/{name}', 'App\Http\Controllers\Api\HelloController@hello');
+Route::post('/hw/times', 'App\Http\Controllers\Api\HwController@times');
