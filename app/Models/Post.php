@@ -9,6 +9,13 @@ class Post extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['title', 'category_id', 'content', 'pic', 'sort', 'enabled'];
+
+    protected $casts = [
+        'created_at' => 'datetime:Y-m-d m:i:s',
+        'updated_at' => 'datetime:Y-m-d m:i:s',
+    ];
+
     public function category()
     {
         return $this->belongsTo(\App\Models\Category::class);

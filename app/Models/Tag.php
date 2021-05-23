@@ -9,6 +9,13 @@ class Tag extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['title', 'link', 'type', 'sort', 'enabled'];
+
+    protected $casts = [
+        'created_at' => 'datetime:Y-m-d m:i:s',
+        'updated_at' => 'datetime:Y-m-d m:i:s',
+    ];
+
     public function posts()
     {
         return $this->belongsToMany(\App\Models\Post::class);
