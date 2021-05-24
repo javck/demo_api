@@ -31,6 +31,7 @@ Route::post('/hw/times', 'App\Http\Controllers\Api\HwController@times');
 //     Route::delete('/{post}', 'App\Http\Controllers\Api\PostController@destroy');
 // });
 //簡要版
+Route::get('posts/query', 'App\Http\Controllers\Api\PostController@query');
 Route::middleware('auth:api')->group(function () {
     Route::put('/post_tag', 'App\Http\Controllers\Api\PostController@updateTag');
     Route::apiResource('posts', 'App\Http\Controllers\Api\PostController');

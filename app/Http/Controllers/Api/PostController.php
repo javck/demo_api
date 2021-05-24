@@ -82,6 +82,16 @@ class PostController extends Controller
         }
     }
 
+    public function query(Request $request)
+    {
+        $posts = Post::where('enabled', true)->where('title', 'like', '%' . $request->s . '%')->orderBy('sort', 'asc')->get();
+        if ($posts && count($posts) > 0) {
+            return $this->makeJson(1, $posts);
+        } else {
+            return $this->makeJson(0, null, '找不到文章資料');
+        }
+    }
+
     /**
      * Store a newly created resource in storage.
      *

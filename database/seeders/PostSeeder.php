@@ -17,7 +17,7 @@ class PostSeeder extends Seeder
     {
         Post::truncate();
         PostTag::truncate();
-        $posts = Post::factory()->times(10)->create();
+        $posts = Post::factory()->times(100)->create();
         foreach ($posts as $post) {
             $post->tags()->sync([rand(1, 10)]);
         }
